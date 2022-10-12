@@ -3,11 +3,11 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable, View, Text } from 'react-native';
+import { ColorSchemeName, Pressable, View, Text, Image } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
 import Colors from '../constants/Colors';
@@ -25,6 +25,7 @@ import {
   Fontisto,
   FontAwesome5,
 } from '@expo/vector-icons';
+import { ChatRoomScreen } from '../screens/ChatRoomScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -76,6 +77,29 @@ function RootNavigator() {
       }}
         
         />
+      <Stack.Screen name="ChatRoom"
+        component={ChatRoomScreen}
+        options={({ route }) => ({
+          title: route ? route.params.name : 'Chat Room',
+          headerRight: () => (
+            <View style={{
+              flexDirection: 'row',
+              width: 100,
+              justifyContent: 'space-between',
+              marginRight: 10,
+            }}>
+              <FontAwesome5 name="video" size={22} color={'white'} />
+              <MaterialIcons name="call" size={22} color={'white'} />
+              <MaterialCommunityIcons name="dots-vertical" size={22} color={'white'} />
+            </View>
+          ),
+          headerLeft: () => (
+            <View>
+              <Image source={{ uri: route.params.imageUri }} style={{ width: 30, height: 30, borderRadius: 30, marginLeft: 10 }} />
+            </View>
+          )
+
+        })} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
