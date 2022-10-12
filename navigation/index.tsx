@@ -15,7 +15,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import { ChatScreen } from '../screens/ChatScreen';
 import { RootStackParamList, MainTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -119,21 +119,21 @@ function MainTabNavigator() {
       />
       <MainTab.Screen
         name="Chats"
-        component={TabTwoScreen}
+        component={ChatScreen}
         // options={{
         //   title: 'Tab Two',
         // }}
       />
       <MainTab.Screen
         name="Status"
-        component={TabTwoScreen}
+        component={ChatScreen}
         // options={{
         //   title: 'Tab Two',
         // }}
       />
       <MainTab.Screen
         name="Calls"
-        component={TabTwoScreen}
+        component={ChatScreen}
         // options={{
         //   title: 'Tab Two',
         // }}

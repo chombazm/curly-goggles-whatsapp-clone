@@ -1,14 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
+import { ChatListItem } from '../components/ChatListItem';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { ChatRooms } from '../data/ChatRooms';
 
-export default function TabTwoScreen() {
+export function ChatScreen() {
+  console.log(ChatRooms[0], "check chat room data")
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+    <FlatList style={{ width: "100%" }} data={ChatRooms} renderItem={({item}) => <ChatListItem chatRoom={item}  />} keyExtractor={(item => item.id)} />
     </View>
   );
 }
