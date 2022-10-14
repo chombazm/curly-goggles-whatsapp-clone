@@ -11,9 +11,10 @@ type ChatMessageProps = {
 export const ChatMessage: React.FC<ChatMessageProps> = ( { message } ) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>{message.user.name}</Text>
+      <Text>Chats</Text>
+      {/* <Text style={styles.name}>{message.user.name}</Text>
       <Text style={styles.message}>{message.content}</Text>
-      <Text style={styles.time}>{moment(message.createdAt).fromNow()}</Text>
+      <Text style={styles.time}>{moment(message.createdAt).fromNow()}</Text> */}
     </View>
   )
 }

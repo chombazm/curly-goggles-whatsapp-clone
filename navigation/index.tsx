@@ -26,6 +26,9 @@ import {
   FontAwesome5,
 } from '@expo/vector-icons';
 import { ChatRoomScreen } from '../screens/ChatRoomScreen';
+import { CameraScreen } from '../screens/CameraScreen';
+import { StatusScreen } from '../screens/StatusScreen';
+import { CallsScreen } from '../screens/CallsScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -130,7 +133,7 @@ function MainTabNavigator() {
       }}>
       <MainTab.Screen
         name="Camera"
-        component={TabOneScreen}
+        component={CameraScreen}
         options={{
           tabBarIcon: ({ color }) => <Fontisto name="camera" color={color} size={18} />,
           tabBarLabel: () => null,
@@ -148,14 +151,14 @@ function MainTabNavigator() {
       />
       <MainTab.Screen
         name="Status"
-        component={ChatScreen}
+        component={StatusScreen}
         // options={{
         //   title: 'Tab Two',
         // }}
       />
       <MainTab.Screen
         name="Calls"
-        component={ChatScreen}
+        component={CallsScreen}
         // options={{
         //   title: 'Tab Two',
         // }}
