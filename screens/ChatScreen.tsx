@@ -6,7 +6,6 @@ import { Text, View } from '../components/Themed';
 import { ChatRooms } from '../data/ChatRooms';
 
 export function ChatScreen() {
-  console.log(ChatRooms[0], "check chat room data")
   return (
     <View style={styles.container}>
     <FlatList style={{ width: "100%" }} data={ChatRooms} renderItem={({item}) => <ChatListItem chatRoom={item}  />} keyExtractor={(item => item.id)} />

@@ -51,10 +51,11 @@ function RootNavigator() {
       },
       headerShadowVisible: false,
       headerTintColor: Colors.light.background,
-      headerTitleAlign: 'left',
       headerTitleStyle: {
         fontWeight: 'bold',
-      }
+        // align left
+
+      },
 
 
     }}>
@@ -80,7 +81,9 @@ function RootNavigator() {
       <Stack.Screen name="ChatRoom"
         component={ChatRoomScreen}
         options={({ route }) => ({
-          title: route ? route.params.name : 'Chat Room',
+          title: route.params.name,
+          headerBackTitleVisible: false,
+          headerTitleAlign: 'left',
           headerRight: () => (
             <View style={{
               flexDirection: 'row',
@@ -93,11 +96,6 @@ function RootNavigator() {
               <MaterialCommunityIcons name="dots-vertical" size={22} color={'white'} />
             </View>
           ),
-          headerLeft: () => (
-            <View>
-              <Image source={{ uri: route.params.imageUri }} style={{ width: 30, height: 30, borderRadius: 30, marginLeft: 10 }} />
-            </View>
-          )
 
         })} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />

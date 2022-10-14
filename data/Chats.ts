@@ -1,4 +1,4 @@
-export default {
+export const Chats = {
 	id: '1',
 	users: [{
 		id: 'u1',
