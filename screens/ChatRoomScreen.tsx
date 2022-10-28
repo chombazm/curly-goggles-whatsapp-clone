@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   chatsContainer: {
     paddingHorizontal: 10,
     paddingBottom: 300,
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
   },
   TextInputContainerMain: {
     width: '100%',
