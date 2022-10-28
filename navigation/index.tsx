@@ -4,11 +4,15 @@
  *
  */
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable, View, Text, Image } from 'react-native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -16,7 +20,11 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import { ChatScreen } from '../screens/ChatScreen';
-import { RootStackParamList, MainTabParamList, RootTabScreenProps } from '../types';
+import {
+  RootStackParamList,
+  MainTabParamList,
+  RootTabScreenProps,
+} from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
 import {
@@ -30,7 +38,11 @@ import { CameraScreen } from '../screens/CameraScreen';
 import { StatusScreen } from '../screens/StatusScreen';
 import { CallsScreen } from '../screens/CallsScreen';
 
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+export default function Navigation({
+  colorScheme,
+}: {
+  colorScheme: ColorSchemeName;
+}) {
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
@@ -48,60 +60,72 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ 
-      headerStyle: { 
-        backgroundColor: Colors.light.tint,
-      },
-      headerShadowVisible: false,
-      headerTintColor: Colors.light.background,
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        // align left
-
-      },
-
-
-    }}>
-      <Stack.Screen name="Root" 
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Colors.light.tint,
+        },
+        headerShadowVisible: false,
+        headerTintColor: Colors.light.background,
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          // align left
+        },
+      }}>
+      <Stack.Screen
+        name="Root"
         component={MainTabNavigator}
-        options={{ 
-          title: "Whatsapp",
+        options={{
+          title: 'Whatsapp',
           headerRight: () => (
-            <View style={{
-              flexDirection: 'row',
-              width: 60,
-              justifyContent: 'space-between',
-              marginRight: 10,
-            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                width: 60,
+                justifyContent: 'space-between',
+                marginRight: 10,
+              }}>
               <Octicons name="search" size={22} color={'white'} />
-              <MaterialCommunityIcons name="dots-vertical" size={22} color={'white'} />
+              <MaterialCommunityIcons
+                name="dots-vertical"
+                size={22}
+                color={'white'}
+              />
             </View>
-          )
-      
-      }}
-        
-        />
-      <Stack.Screen name="ChatRoom"
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="ChatRoom"
         component={ChatRoomScreen}
         options={({ route }) => ({
           title: route.params.name,
           headerBackTitleVisible: false,
           headerTitleAlign: 'left',
           headerRight: () => (
-            <View style={{
-              flexDirection: 'row',
-              width: 100,
-              justifyContent: 'space-between',
-              marginRight: 10,
-            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                width: 100,
+                justifyContent: 'space-between',
+                marginRight: 10,
+              }}>
               <FontAwesome5 name="video" size={22} color={'white'} />
               <MaterialIcons name="call" size={22} color={'white'} />
-              <MaterialCommunityIcons name="dots-vertical" size={22} color={'white'} />
+              <MaterialCommunityIcons
+                name="dots-vertical"
+                size={22}
+                color={'white'}
+              />
             </View>
           ),
-
-        })} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+        })}
+      />
+      <Stack.Screen
+        name="NotFound"
+        component={NotFoundScreen}
+        options={{ title: 'Oops!' }}
+      />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -124,18 +148,21 @@ function MainTabNavigator() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].background,
         tabBarStyle: { backgroundColor: Colors[colorScheme].tint },
-        tabBarIndicatorStyle: { backgroundColor: Colors[colorScheme].background, height: 4 },
+        tabBarIndicatorStyle: {
+          backgroundColor: Colors[colorScheme].background,
+          height: 4,
+        },
         tabBarLabelStyle: {
           fontWeight: 'bold',
-        }
-
-
+        },
       }}>
       <MainTab.Screen
         name="Camera"
         component={CameraScreen}
         options={{
-          tabBarIcon: ({ color }) => <Fontisto name="camera" color={color} size={18} />,
+          tabBarIcon: ({ color }) => (
+            <Fontisto name="camera" color={color} size={18} />
+          ),
           tabBarLabel: () => null,
           // tabBarStyle: {
           //   width: 100,
