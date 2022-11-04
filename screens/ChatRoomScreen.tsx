@@ -9,6 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { ChatMessage } from '../components/ChatMessage';
+import { TextInputChat } from '../components/TextInputChat';
 import { Chats } from '../data/Chats';
 
 const BG = require('../assets/images/BG.png');
@@ -60,11 +61,11 @@ const chats = [
     content: "No No, I don't. Am going home.",
     time: '10:00 pm',
   },
-  {
-    id: '2',
-    content: 'hi',
-    time: '10:00 pm',
-  },
+  // {
+  //   id: '2',
+  //   content: 'hi',
+  //   time: '10:00 pm',
+  // },
   {
     id: '1',
     content: 'Hello, How are you?',
@@ -86,9 +87,7 @@ export const ChatRoomScreen: React.FC = () => {
           />
         ))}
       </ScrollView>
-      <View style={styles.TextInputContainerMain}>
-        <View style={styles.TextInputContainer}></View>
-      </View>
+      <TextInputChat />
     </ImageBackground>
   );
 };
@@ -106,22 +105,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingBottom: 300,
     // backgroundColor: 'pink',
-  },
-  TextInputContainerMain: {
-    width: '100%',
-    // height: 60,
-    // backgroundColor: 'blue',
-    position: 'absolute',
-    bottom: 0,
-
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-  },
-  TextInputContainer: {
-    backgroundColor: '#fff',
-    width: '100%',
-    height: 50,
-    borderRadius: 25,
-    // elevation: 5,
   },
 });
